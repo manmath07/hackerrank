@@ -1,0 +1,43 @@
+An integer  is a divisor of an integer  if the remainder of .
+
+Given an integer, for each digit that makes up the integer determine whether it is a divisor. Count the number of divisors occurring within the integer.
+
+2
+12
+1012
+Sample Output
+
+2
+3
+
+#include <iostream>
+using namespace std;
+
+int findDigits(int n) {
+    int r;
+    int count = 0;
+    int temp = n;
+    
+    
+    while (temp > 0) {
+        r = temp % 10;  
+        temp=temp/10;
+        if (r != 0 && n % r == 0) {
+            count++;
+        }
+    }
+    
+    return count;  
+}
+
+int main() {
+    int t, n;
+    cin >> t;  
+    for (int i = 0; i < t; i++) {
+        cin >> n; 
+        int result = findDigits(n);  
+        cout << result << endl; 
+    }
+    return 0;
+}
+
