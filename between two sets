@@ -10,7 +10,6 @@ x divides all elements in Set B.
 
 Solution:
 #include <bits/stdc++.h>
-
 using namespace std;
 bool check(int a[],int num,int n)
 {
