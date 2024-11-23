@@ -1,0 +1,86 @@
+Problem Statement:
+You are given two sets of integers:
+
+Set A contains n integers.
+Set B contains m integers.
+Your task is to determine how many integers x satisfy the following conditions:
+
+x is divisible by all elements in Set A.
+x divides all elements in Set B.
+
+Solution:
+#include <bits/stdc++.h>
+
+using namespace std;
+bool check(int a[],int num,int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        if(num%a[i]!=0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+bool check_a(int a[],int num,int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        if(num%a[i]!=0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+bool check_b(int b[],int num,int m)
+{
+    for(int i=0;i<m;i++)
+    {
+        if(b[i]%num!=0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    int a[100],b[100];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(int i=0;i<m;i++)
+    {
+        cin>>b[i];
+    }
+    //set
+    int s=a[n-1],e=b[0];
+    vector<int>v;
+    for(int i=s;i<=e;i++)
+    {
+        if(check(a,i,n))
+        {
+            v.push_back(i);
+        }
+    }
+    // for(int i=0;i<v.size();i++)
+    // {
+    //     cout<<v[i]<<" ";
+    // }
+    int count=0;
+    for(int i=0;i<v.size();i++)
+    {
+        if(check_a(a,v[i],n) && check_b(b,v[i],m))
+        {
+            count++;
+        }
+    }
+    cout<<count;
+}
