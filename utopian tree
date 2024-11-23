@@ -1,0 +1,53 @@
+Summer (odd-numbered cycles): The tree doubles its height.
+Spring (even-numbered cycles): The tree grows by 1 meter.
+
+Problem Statement:
+You are given an initial height of the Utopian Tree, which is 1 meter. The tree undergoes n cycles, where each cycle is either spring or summer. You need to determine the height of the tree after n cycles.
+
+Input:
+The first line contains an integer, T, the number of test cases.
+Each test case consists of an integer n, the number of growth cycles.
+
+Output:
+For each test case, output the height of the tree after n cycles.
+example:
+i/p
+3
+0
+1
+4
+o/p
+1
+2
+7
+
+solution :
+#include <bits/stdc++.h>
+using namespace std;
+int tree_height(int n)
+{
+    int sum=1;
+    for(int i=1;i<=n;i++)
+    {
+        if(i%2!=0)
+        {
+            sum+=sum;
+        }
+        else {
+          sum++;
+        }
+    }
+    cout<<sum<<endl;
+    return 0;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    int n;
+    for(int i=0;i<t;i++)
+    {
+        cin>>n;
+        tree_height(n);
+    }
+}
