@@ -1,0 +1,59 @@
+Problem Statement:
+You are given three integers:
+
+i: The starting day number.
+j: The ending day number.
+k: The divisor.
+A day is considered beautiful if the absolute difference between the day number and its reversed version is divisible by k.
+
+Steps:
+For each day number in the range [i, j]:
+Reverse the digits of the day number.
+Calculate the absolute difference between the day number and its reversed version.
+Check if this difference is divisible by k.
+Count and return the number of such "beautiful" days.
+
+example :
+i/p
+i = 20
+j = 23
+k = 6
+o/p
+3
+Explanation:
+For day 20: Reverse = 02 → Difference = |20 - 2| = 18 → 18 is divisible by 6.
+For day 21: Reverse = 12 → Difference = |21 - 12| = 9 → 9 is divisible by 6.
+For day 22: Reverse = 22 → Difference = |22 - 22| = 0 → 0 is divisible by 6.
+For day 23: Reverse = 32 → Difference = |23 - 32| = 9 → 9 is divisible by 6.
+solution :
+#include <bits/stdc++.h>
+using namespace std;
+int reverse(int n)
+{
+    int sum=0;
+    while(n>0)
+   {
+       int r;
+    r=n%10;
+    sum=sum*10+r;
+    n=n/10;
+   }
+   return sum;
+}
+int main()
+{
+    int s_day,e_day,key;
+    cin>>s_day>>e_day>>key;
+    int count=0;
+    for(int i=s_day;i<=e_day;i++)
+    {
+        int x=reverse(i);
+        int temp=i-x;
+        temp=abs(temp);
+        if(temp%key==0)
+        {
+            count++;
+        }
+    }
+    cout<<count;
+}
