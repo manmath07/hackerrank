@@ -1,0 +1,35 @@
+Problem Statement
+A new viral advertisement starts with 5 people seeing it on day 1. On each subsequent day, the number of people who see the advertisement is doubled compared to the previous day, and half of the people who see it share it with others. Every day, the number of people who share the ad is halved.
+
+You are given an integer n, which represents the number of days the advertisement is being shared. You need to calculate how many people have received the advertisement in total after n days.
+Explanation:
+Let's break down the number of views day by day:
+
+Day 1: 5 people see the ad.
+Day 2: Each of the 5 people shares the ad with 2 others, so the number of new people seeing the ad is 5 // 2 = 2. Total viewers by the end of day 2 is 5 + 2 = 7.
+Day 3: Each of the 2 people from Day 2 shares the ad with 2 more people, so 2 new people see the ad. The total viewers by day 3 is 7 + 2 = 9.
+And so on, for each day, with the number of people who see the ad being halved as the cycle continues.
+  Solution Strategy:
+You start with 5 people seeing the ad on the first day.
+For each subsequent day, half of the people who saw the ad share it with others, and you add those new people to the total count.
+Keep track of the cumulative total and the number of people seeing the ad each day.
+After iterating for n days, print the total number of viewers.
+  solution :
+  #include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int d,share=5,like=0,cumulative=0;
+    d=1;
+    while(d<=n)
+    {
+        like=share/2; 
+        cumulative=cumulative+like;
+        share=like*3;
+        d++;
+    }
+    cout<<cumulative;
+    
+}
