@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+   int *v=new int[n];
+    int key;
+    cin>>key;
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    
+   int *temp=new int[n];
+    for(int i=0;i<key;i++)
+    {
+        temp[i]=v[i];
+    }
+    for(int i=0;i<n-key;i++)
+    {
+        v[i]=v[key+i];
+    }
+    for(int i=0;i<key;i++)
+    {
+        v[n-key+i]=temp[i];
+    }
+    for(int i=0;i<n;i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    return 0;
+}
+
