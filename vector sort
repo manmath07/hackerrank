@@ -1,0 +1,30 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+  vector<int>v;
+  int n;
+  cin>>n;
+  for(int i=0;i<n;i++)
+  {
+    int x;
+    cin>>x;
+    v.push_back(x);
+  }
+  sort(v.begin(),v.end()); 
+
+for(auto element : v)
+{
+    cout<<element<<" ";
+}
+// while(!v.empty())
+// {
+//     cout<<v.back(); it print last element
+//     v.pop_back();
+// }
+  return 0;
+}
