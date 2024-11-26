@@ -1,0 +1,31 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n, q;
+    cin>>n>>q;
+    vector<vector<int>> a(n);
+    for(int i=0;i<n;i++)
+    {
+        int m;
+        cin>>m;
+        
+        for(int j=0;j<m;j++)
+        {
+            int inserting_element;
+            cin>>inserting_element;
+            a[i].push_back(inserting_element);
+        }  
+    } 
+    for(int k=0;k<q;k++)
+    {
+       int i,j;
+       cin>>i>>j;
+       cout<<a[i][j]<<endl; 
+    }
+    
+    return 0;
+}
