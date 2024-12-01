@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int q;
+    cin >> q;
+    for (int j = 0; j < q; j++) {
+        int n, m, s;
+        cin >> n >> m >> s;
+        int final_position = ((s - 1) + m) % n;
+        if (final_position == 0) final_position = n; 
+        cout << final_position << endl;
+    }
+    return 0;
+}
