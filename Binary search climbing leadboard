@@ -73,29 +73,6 @@ int main()
     
     
 }
-// int main()
-// {
-//     int n;
-//     cin>>n;
-//     int *r=new int[n];
-//     for(int i=1;i<=n;i++)
-//     {
-//         cin>>r[i];
-//     }
-//     int *u=new int[n];
-//     const int max=200000;
-//     bool *seen=new int[max];
-//     for(auto num :r)
-//     {
-//         if(!seen[num])
-//         {
-//             u=num;
-//             seen[num]=true;
-//         }
-//     }
-    
-    
-// }
 
 
 
