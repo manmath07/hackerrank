@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
+#include<algorithm>
 using namespace std;
-int rp(vector<int>a,int s,int e,int target)
+int rp(vector<int>& a,int s,int e,int target)
 {
     int index=-1,mid;
     while(s<=e)
@@ -10,8 +11,7 @@ int rp(vector<int>a,int s,int e,int target)
         if(a[mid]==target)
         {
           index=mid+1;
-          cout<<index<<endl;
-          return 0;  
+          return index;  
         }
         if(a[mid]<target)
         {
@@ -22,60 +22,47 @@ int rp(vector<int>a,int s,int e,int target)
             s=mid+1;
         }
     }
-    index=s+1;
-    cout<<index<<endl;
-    return 0;
+    
+    return s+1;
 }
 int main()
 {
     int n;
     cin>>n;
-    // int *r=(int *)malloc(sizeof(int)*n);
-    //  r=(int *)calloc(n,sizeof(int));
-    //  r=(int *)realloc(r,sizeof(int)*(n*n));
+    
     vector<int>r(n);
     for(int i=0;i<n;i++)
     {
-        // int val;
-        // cin>>val;
-        // r.push_back(val);
+        
         cin>>r[i];
     }
-    // int *unique=(int *)malloc(sizeof(int)*n);
-    //  unique=(int *)calloc(n,sizeof(int));
-    //  unique=(int *)realloc(unique,sizeof(int)*(n*n));
+    
     vector<int>unique;
-    const int max=200000;
-    vector<bool> seen(max, false);
-    for(auto num :r)
+    
+     sort(r.rbegin(),r.rend());
+    
+    for(int i=0;i<n;i++)
     {
-        if(!seen[num])
-        {
-            // unique.push_back(num);
-            unique.push_back(num);
-            seen[num]=true;
+        if(unique.empty() || unique.back() !=r[i]){
+            unique.push_back(r[i]);
         }
     }
+    
     int m;
     cin>>m;
-    // int *player=(int *)malloc(sizeof(int)*m);
-    //  player=(int *)calloc(m,sizeof(int));
-    //  player=(int *)realloc(player,sizeof(int)*(m*m));
     vector<int>player(m);
     for(int i=0;i<m;i++)
     {
-        // int val;
-        // cin>>val;
-        // player.push_back(val);
+        
         cin>>player[i];
-        rp(unique,0,unique.size()-1,player[i]);
+        
     }
-    
-    
+    for(int i=0;i<m;i++){
+        int temp = rp(unique,0,unique.size()-1,player[i]);
+        cout<<temp<<endl;
+    }
+    return 0;
 }
-
-
-
 
 
 
