@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+#include<string.h>
+using namespace std;
+int main() {
+    string s, t;
+    cin >> s >> t;
+    int k;
+    cin >> k;
+    int count = 0;
+    for (int i = 0; i < s.size() && i < t.size(); i++) {
+        if (s[i] != t[i]) {
+            break;
+        }
+        count++;
+    }
+    int deletes = s.size() - count;
+    int append = t.size() - count;
+    int total_operations = deletes + append;
+
+    if (k >= total_operations && (k - total_operations) % 2 == 0 || k >= s.size() + t.size()) {
+        cout << "Yes";
+    } else {
+        cout << "No";
+    }
+
+    return 0;
+}
+
+// int main()
+// {
+//     string s,t;
+//     cin>>s>>t;
+//     int k;
+//     cin>>k;
+//     int count=0;
+//     for(int i=0; ;i++)
+//     {
+//         if(s[i]!=t[i])
+//         {
+//             break;
+//         }
+//         else
+//         {
+//             count++;
+//         }
+//     }
+//     int deletes=s.size()-count;
+//     int append=t.size()-count;
+//     if(k>=(deletes+append))
+//     {
+//         cout<<"Yes";
+//     }
+//     else 
+//     {
+//         cout<<"No";
+//     }
+//     return 0;
+// }
