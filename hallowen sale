@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int p,d,m,s;
+    cin>>p>>d>>m>>s;
+    int currency=0,count=0;
+    while(1)
+    {
+      if(p>m)
+        {
+            currency+=p;
+            p=p-d;
+            
+        }
+        else
+        {
+            currency+=m;
+        }
+        if(currency<=s)
+        {
+          count++;  
+        }
+        else
+        {
+            break;
+        }
+        
+    }
+    cout<<count;
+    
+}
