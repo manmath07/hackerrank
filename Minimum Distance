@@ -1,0 +1,43 @@
+TC=O(n2)
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v;
+    for(int i=0;i<n;i++)
+    {
+        int val;
+        cin>>val;
+        v.push_back(val);
+        
+    }
+    int mindis=INT_MAX,count=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+           if(v[i]==v[j] && mindis>(j-i)) 
+           {
+            mindis=(j-i);
+            count++;
+           }
+        }
+    } 
+    if(mindis==INT_MAX)
+    {
+        cout<<"-1";
+    }
+    else 
+    {
+        cout<<mindis;
+    }  
+}
+
+
+
+
+
+
+
+
