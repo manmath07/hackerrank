@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+int count_digit(int n) {
+    return to_string(n).length();
+}
+int main() {
+    int p, q;
+    cin >> p >> q;
+    bool kp_found=false;
+    for (int i = p; i <= q; i++)
+     {
+        int n = i;
+        int n_digit = count_digit(n);
+        long long n_sqr = (long long)n * n;  
+        string s = to_string(n_sqr);
+
+        string l = "", r = "";
+        if (s.size() > n_digit) {
+            l = s.substr(0, s.size() - n_digit);
+            r = s.substr(s.size() - n_digit);
+        } else {
+            r = s;
+        }
+
+        int l_num = (l.empty() ? 0 : stoi(l));
+        int r_num = stoi(r);
+         int result;
+         
+        if ((l_num + r_num) == n) 
+        {
+            result=n;
+            kp_found=true;
+            cout << result << " ";
+        }
+    }
+    if(!kp_found)
+    {
+        cout<<"INVALID RANGE";
+    }
+
+    return 0;
+}
