@@ -1,0 +1,136 @@
+#include <iostream>
+using namespace std;
+int queen_attack(int **a,int n,int qr,int qc)
+{
+    int count=0;
+    int r,c;
+    // left side of row
+    r=qr;
+    c=qc-1;
+    while(c>=1)
+    {
+        if(a[r][c]==0)
+        {
+            break;
+        }
+        count++;
+        
+        c--;
+    }
+    // right side of row;
+    c=qc+1;
+     while(c<=n)
+    {
+        if(a[r][c]==0)
+        {
+            break;
+        }
+        count++;
+        c++;  
+    }
+    // top of column
+    c=qc;
+    r=qr-1;
+    while(r>=1)
+    {
+        if(a[r][c]==0)
+        {
+            break;
+        }
+        count++;
+        r--;
+    }
+    //bottom of column;
+    r=qr+1;
+    while(r<=n)
+    {
+        if(a[r][c]==0)
+        {
+            break;
+        }
+        count++;
+        r++;
+    }
+    // top of left diagonal
+    r=qr-1;
+    c=qc-1;
+    while(r>=1 && c>=1)
+    {
+        if(a[r][c]==0)
+        {
+            break;
+        }
+        count++;
+        r--;
+        c--;
+    }
+    // bottom of left diagonal
+    r=qr+1;
+    c=qc+1;
+    while(r<=n && c<=n)
+    {
+        if(a[r][c]==0)
+        {
+            break;
+        }
+        count++;
+        r++;
+        c++;
+    }
+    // top of right diagonal
+    r=qr-1;
+    c=qc+1;
+    while(r>=1 && c<=n)
+    {
+        if(a[r][c]==0)
+        {
+            break;
+        }
+        count++;
+        r--;
+        c++;
+    }
+    // bottom of right diagonal
+    r=qr+1;
+    c=qc-1;
+    while(r<=n && c>=1)
+    {
+        if(a[r][c]==0)
+        {
+            break;
+        }
+        count++;
+        r++;
+        c--;
+    }
+   return count;   
+}
+int main() {
+   int n,q;
+   cin>>n>>q;
+   int **a=new int*[n+1]; // 1 based index 
+   for(int i=0;i<=n;i++)
+   {
+    a[i]=new int[n+1];
+   }
+    
+  for(int i=1;i<=n;i++)
+  {
+    for(int j=1;j<=n;j++)
+    {
+        a[i][j]=1;
+    }
+  }
+  int qr,qc;
+  cin>>qr>>qc;
+  for(int i=1;i<=q;i++)
+  {
+    int ro,co;
+    cin>>ro>>co;
+    a[ro][co]=0;
+  }
+  int result=queen_attack(a,n,qr,qc);
+  cout<<result;
+  
+    return 0;
+}
