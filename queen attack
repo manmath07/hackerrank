@@ -134,3 +134,81 @@ int main() {
   
     return 0;
 }
+#include <iostream>
+using namespace std;
+int r1=check_up_col(a,n,qr,qc)
+{
+     
+}
+int r2=check_down_col(a,n,qr,qc)
+{
+        
+}
+int r3=check_right_row(a,n,qr,qc)
+{
+    
+}
+int r4=check_left_row(a,n,qr,qc)
+{
+    
+}
+ int check_left_up_diagonal(a,n,qr,qc)
+ {
+     
+ }
+ int check_left_down_diagonal(a,n,qr,qc)
+ {
+     
+ }
+ int check_right_up_diagonal(a,n,qr,qc)
+ {
+     
+ }
+ int check_right_down_diagonal(a,n,qr,qc)
+ {
+     
+ }
+int nqueen(int **a,int n,int qr,int qc)
+{
+    int r1=check_up_col(a,n,qr,qc);
+    int r2=check_down_col(a,n,qr,qc);
+    int r3=check_right_row(a,n,qr,qc);
+    int r4=check_left_row(a,n,qr,qc);
+    int r5=check_left_up_diagonal(a,n,qr,qc);
+    int r6=check_left_down_diagonal(a,n,qr,qc);
+    int r7=check_right_up_diagonal(a,n,qr,qc);
+    int r8=check_right_down_diagonal(a,n,qr,qc);
+    return r1+r2+r3+r4+r5+r6+r7+r8;
+    
+}
+int main() 
+{
+   int n,n_obstacles;
+   cin>>n>>n_obstacles;
+   int **a=new int*[n+1]; // 1 based index 
+   for(int i=0;i<n+1;i++)
+   {
+    a[i]=new int[n+1];
+   }
+    
+  for(int i=1;i<n+1;i++)
+  {
+    for(int j=1;j<n+1;j++)
+    {
+        a[i][j]=1;
+    }
+  }
+  int row_of_queen,col_of_queen;
+  cin>>row_of_queen>>col_of_queen;
+  for(int i=0;i<n_obstacles;i++)
+  {
+    int row_of_obtsacle,col_of_obstacle;
+    cin>>row_of_obtsacle>>col_of_obstacle;
+    a[row_of_obtsacle][col_of_obstacle]=0;
+  }
+  int result=queen_attack(a,n,row_of_queen,col_of_queen);
+  cout<<result;
+  
+    return 0;
+}
+
